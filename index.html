@@ -197,12 +197,15 @@
 
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 bg-transparent">
+<nav id="navbar" class="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 bg-transparent">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <!-- 1. Logo (Always Visible on Left) -->
         <a href="#" class="text-4xl font-display font-bold tracking-tighter relative z-50 hover-trigger">
             VANTAGE<span class="text-brand-yellow">.IT</span>
         </a>
 
+        <!-- 2. Desktop Menu (Centered, Hidden on Mobile) -->
+        <!-- Key Change: Added 'hidden' to hide on mobile. The rest of the centering logic remains. -->
         <div class="hidden md:flex space-x-10 mx-auto absolute left-1/2 transform -translate-x-1/2">
             <a href="#home" class="nav-link text-big font-medium uppercase tracking-widest hover:text-brand-yellow transition-colors hover-trigger relative group">
                 Home
@@ -225,28 +228,31 @@
             </a>
         </div>
         
-        <div id="nav-clock" class="text-4x1 md:flex flex-col items-end text-right font-mono tracking-wider text-white-400 relative z-50">
+        <!-- 3. Current Date & Time (Right, Hidden on Mobile) -->
+        <!-- Key Change: Added 'hidden' to hide on mobile. Only visible on md screens and up. -->
+        <div id="nav-clock" class="hidden md:flex flex-col items-end text-right text-xs font-mono tracking-wider text-gray-400 relative z-50">
             <span id="nav-date"></span>
             <span id="nav-time" class="text-brand-yellow font-bold"></span>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- 4. Mobile Menu Button (Always Visible on Right on Mobile) -->
+        <!-- The 'md:hidden' class ensures it disappears on desktop view. -->
         <button id="menu-btn" class="md:hidden text-white hover:text-brand-yellow transition-colors relative z-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
     </div>
 </nav>
-	    
-            
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-black z-40 flex flex-col justify-center items-center transform translate-x-full">
-        <div class="flex flex-col space-y-8 text-center">
-            <a href="#home" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">HOME</a>
-            <a href="#work" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">WORK</a>
-            <a href="#about" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">ABOUT</a>
-            <a href="#contact" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">CONTACT</a>
-        </div>
+
+<!-- Mobile Menu Overlay (This part handles the navigation links when the button is clicked) -->
+<!-- No changes needed here, as the links are handled by the button click (menu-btn) -->
+<div id="mobile-menu" class="fixed inset-0 bg-brand-black z-40 flex flex-col justify-center items-center transform translate-x-full">
+    <div class="flex flex-col space-y-8 text-center">
+        <a href="#home" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">HOME</a>
+        <a href="#work" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">WORK</a>
+        <a href="#about" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">ABOUT</a>
+        <a href="#contact" class="mobile-link text-5xl font-display font-bold hover:text-brand-yellow transition-colors">CONTACT</a>
     </div>
+</div>
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 pt-20">
